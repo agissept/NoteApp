@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ui.insertnote.InsertNoteActivity">
+
+    <EditText
+        android:id="@+id/ed_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title" />
+
+    <EditText
+        android:id="@+id/ed_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/note" />
+
+    <Button
+        android:id="@+id/btn_insert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_note" />
+
+</LinearLayout>
