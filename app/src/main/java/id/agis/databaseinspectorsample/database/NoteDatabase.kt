@@ -7,8 +7,8 @@ import androidx.room.RoomDatabase
 import id.agis.databaseinspectorsample.model.Note
 
 @Database(version = 1, entities = [Note::class], exportSchema = false)
-abstract class NoteDatabase : RoomDatabase(){
-    abstract fun noteDao() : NoteDao
+abstract class NoteDatabase : RoomDatabase() {
+    abstract fun noteDao(): NoteDao
 
     companion object {
 

@@ -5,13 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import id.agis.databaseinspectorsample.R
 import id.agis.databaseinspectorsample.model.Note
+import id.agis.databaseinspectorsample.util.toast
+import id.agis.databaseinspectorsample.viewmodel.NotesViewModel
 import kotlinx.android.synthetic.main.activity_insert_note.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 class InsertNoteActivity : AppCompatActivity() {
     private val viewModel by lazy {
-        ViewModelProviders.of(this).get(InsertNoteViewModel::class.java)
+        ViewModelProviders.of(this).get(NotesViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,8 +26,9 @@ class InsertNoteActivity : AppCompatActivity() {
         btn_insert.setOnClickListener {
             val note = Note(null, ed_title.text.toString(), ed_note.text.toString(), currentDate)
             viewModel.insertNote(note)
+            toast("Note Berhasil Disimpan")
+            finish()
         }
     }
-
 
 }

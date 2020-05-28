@@ -1,15 +1,15 @@
 package id.agis.databaseinspectorsample.ui.notelist
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import id.agis.databaseinspectorsample.R
 import id.agis.databaseinspectorsample.model.Note
+import id.agis.databaseinspectorsample.ui.detailnote.DetailNoteActivity
+import id.agis.databaseinspectorsample.util.formatDate
 import kotlinx.android.synthetic.main.item_note.view.*
-import java.text.SimpleDateFormat
-import java.util.*
-
 
 class NotesAdapter(private val noteList: List<Note>) :
     RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
@@ -26,10 +26,12 @@ class NotesAdapter(private val noteList: List<Note>) :
         with(holder.itemView) {
             tv_title.text = note.title
             tv_note.text = note.note
-            val date = SimpleDateFormat("dd/M/yyyy hh:mm:ss", Locale.getDefault()).parse(note.date)
-            val formattedDate =
-                SimpleDateFormat("hh:mm EEE, d MMMM", Locale.getDefault()).format(date!!)
-            tv_date.text = formattedDate
+            tv_date.text = formatDate(note.date)
+            setOnClickListener {
+                val intent = Intent(it.context, DetailNoteActivity::class.java)
+                intent.putExtra("noteId", note.id)
+                it.context.startActivity(intent)
+            }
         }
     }
 

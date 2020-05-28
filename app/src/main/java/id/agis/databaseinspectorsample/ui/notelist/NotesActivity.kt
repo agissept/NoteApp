@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import id.agis.databaseinspectorsample.R
 import id.agis.databaseinspectorsample.model.Note
 import id.agis.databaseinspectorsample.ui.insertnote.InsertNoteActivity
+import id.agis.databaseinspectorsample.viewmodel.NotesViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class NotesActivity : AppCompatActivity() {
@@ -39,7 +40,7 @@ class NotesActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.action_add){
+        if (item.itemId == R.id.action_add) {
             val intent = Intent(this, InsertNoteActivity::class.java)
             startActivity(intent)
         }

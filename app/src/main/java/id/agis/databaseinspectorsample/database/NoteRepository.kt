@@ -21,6 +21,9 @@ class NoteRepository(application: Application) : CoroutineScope {
 
     fun getNoteList() = noteDao?.getNoteList()
 
+    fun getNoteById(id: Int) = noteDao?.getNoteById(id)
+
+
     fun insertNote(note: Note) {
         launch {
             withContext(Dispatchers.IO) {
@@ -28,5 +31,22 @@ class NoteRepository(application: Application) : CoroutineScope {
             }
         }
     }
+
+    fun deleteNote(note: Note) {
+        launch {
+            withContext(Dispatchers.IO) {
+                noteDao?.deleteNote(note)
+            }
+        }
+    }
+
+    fun updateNote(note: Note) {
+        launch {
+            withContext(Dispatchers.IO) {
+                noteDao?.updateNote(note)
+            }
+        }
+    }
+
 
 }
